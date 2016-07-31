@@ -8,4 +8,7 @@ class TweetsController < ApplicationController
     render json: 'Tweet created successfuly.'.to_json , content_type: "application/json", status: 200
   end
 
+  def index
+    render json: Tweet.all, content_type: "application/json", status: 200
+  end
 end
