@@ -21,6 +21,12 @@ class TweetsController < ApplicationController
     end
   end
 
+  def show
+    @tweet = Tweet.find(params[:id])
+
+    render_json_ok_message(@tweet)
+  end
+
   def destroy
     @tweet = Tweet.find(params[:id])
     @tweet.destroy
