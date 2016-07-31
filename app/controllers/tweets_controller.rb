@@ -20,4 +20,11 @@ class TweetsController < ApplicationController
 
     render json: 'Tweet updated successfuly.'.to_json , status: 200
   end
+
+  def destroy
+    @tweet = Tweet.find(params[:id])
+    @tweet.destroy
+
+    render json: 'Tweet deleted successfuly.'.to_json , status: 200
+  end
 end
