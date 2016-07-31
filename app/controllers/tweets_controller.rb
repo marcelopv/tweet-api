@@ -1,4 +1,7 @@
 class TweetsController < ApplicationController
+  include ActionController::HttpAuthentication::Basic::ControllerMethods
+
+  http_basic_authenticate_with name: "username", password: "password", except: [:index, :show]
 
   def create
     @tweet = Tweet.new(tweet_params)
