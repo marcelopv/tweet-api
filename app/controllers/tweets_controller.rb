@@ -11,4 +11,13 @@ class TweetsController < ApplicationController
   def index
     render json: Tweet.all, content_type: "application/json", status: 200
   end
+
+  def update
+    @tweet = Tweet.find(params[:id])
+
+    @tweet.text = params[:text]
+    @tweet.save
+
+    render json: 'Tweet updated successfuly.'.to_json , status: 200
+  end
 end
